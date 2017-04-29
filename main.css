@@ -1,0 +1,356 @@
+/* ******* MAIN STUFF ******* */
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    color: black;
+    text-decoration: none;
+}
+
+.container{
+    margin-right: auto;
+    margin-left: auto;
+    width: 1000px;
+}
+
+.clear{
+    clear: both;
+}
+
+/* ******* HEADER STUFF ******* */
+
+#home{
+    background-color: antiquewhite;
+}
+
+header{
+    /*position: fixed;*/
+    width: 100%;
+}
+
+#header-content{
+    padding-top: 20px;
+    width: 500px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#header-content-h1{
+    margin-bottom: 20px;
+}
+
+#header-content h1{
+    font-family: 'Playfair Display';
+    font-weight: bold;
+    font-size: 50px;
+}
+
+#header-content p{
+    font-family: 'Libre Baskerville';
+}
+
+#header-content-nav{ /* the div */
+    display: table;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+#header-content-nav p,
+.divider{ /* the stuff/element in the div */
+    font-family: 'Montserrat';
+    /*font-weight: 400;*/
+    font-size: 110%;
+    float: left;
+    margin: 0px 15px;
+    font-weight: bold;
+}
+
+/* ******* AFTER HEADER STUFF ******* */
+
+#after-header{
+    /*padding-top: 100vh;*/
+}
+
+#nav-bar,
+#home,
+#about,
+#projects{
+    position: relative;
+}
+
+/* ******* NAV LIST BAR STUFF ******* */
+
+#nav-list{
+    float: left;
+}
+
+#nav-list a,
+#header-content-nav a{
+    float: left;
+    padding-bottom: 7px;
+    position: relative;
+    text-transform: uppercase;
+}
+
+#nav-list a{
+    margin: 30px 15px;
+}
+
+/* From codrops */
+
+#nav-list a::after,
+#header-content-nav a::after {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 100%;
+	height: 1px;
+	background: black;
+	content: '';
+	opacity: 0;
+	-webkit-transition: height 0.3s, opacity 0.3s, -webkit-transform 0.3s;
+	-moz-transition: height 0.3s, opacity 0.3s, -moz-transform 0.3s;
+	transition: height 0.3s, opacity 0.3s, transform 0.3s;
+	-webkit-transform: translateY(-10px);
+	-moz-transform: translateY(-10px);
+	transform: translateY(-10px);
+}
+
+#nav-list a:hover::after,
+#nav-list a:focus::after,
+#header-content-nav a:hover::after{
+	height: 4px;
+	opacity: 1;
+	-webkit-transform: translateY(0px);
+	-moz-transform: translateY(0px);
+	transform: translateY(0px);
+}
+
+/* NAV BAR STUFF - AFTER HEADER */
+
+#nav-bar{
+    height: 80px;
+    font-family: 'Montserrat';
+    background-color: #FFE77C;
+    z-index: 150;
+    width: 100%;
+}
+
+#nav-bar.nav-bar-scrolled{
+    top: 0;
+    z-index: 150;
+    position: fixed;
+    width: 100%;
+}
+
+#nav-bar a{
+    font-size: 110%;
+    font-weight: 500;
+}
+
+/* ******* ABOUT STUFF ******* */
+
+#about{
+    background-color: #1C1B20;
+    padding-top: 110px;
+    width: 100%;
+}
+#about{
+    /*margin-top: 25px;*/
+}
+
+#abt-img{ /* div for img */
+    float: left;
+}
+
+img{
+    max-width: 100%;
+    height: 500px;
+}
+
+#right-about{ /* div for dict and button */
+    width: auto;
+    background-color: #fafafa;
+    height: 500px;
+}
+
+#dict{
+    float: left;
+    font-family: "PT Serif Caption";
+    padding: 35px 25px;
+
+}
+
+.name{
+    font-size: 270%;
+}
+
+.leenuhsee{
+    font-size: 170%;
+}
+
+.dict-content{
+    font-family: "Source Sans Pro";
+    font-size: 127%;
+    width: 500px;
+}
+
+ol{
+    counter-reset: li;
+    padding-left: 50px;
+    font-size: 120%;
+}
+
+li{
+    margin: 10px 0;
+    list-style-type: none;
+    position: relative;
+    float: left;
+}
+
+li::before{
+    content: counter(li) " ";
+    counter-increment: li;
+    position: absolute;
+    left: -22px;
+    font-weight: bold;
+    font-size: 110%;
+}
+
+/* MODAL STUFF (ABOUT) */
+
+/*div for button section*/
+#button-div{
+    width: 100%;
+    text-align: center;
+}
+
+/*close button*/
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    cursor: pointer;
+}
+
+body.modal-open {
+    overflow: hidden;
+}
+
+/*modal button*/
+#my-button{
+    font-family: 'Montserrat';
+    font-size: 110%;
+    padding: 10px 30px;
+    border-radius: 8%;
+    border: 1px solid #000000;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, .4);
+}
+
+/*modal background*/
+.modal{ 
+    display: none;
+    position: fixed;
+    z-index: 2000; /*sit on top*/
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+    overflow: scroll; /*enable scroll if needed*/
+    background-color: rgb(0,0,0); /*fallback color*/
+    background-color: rgba(0,0,0,0.4); /*black with opacity*/
+    
+    
+	/*max-width: 630px;
+	min-width: 320px;
+	visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-webkit-transform: translateX(-50%) translateY(-50%);
+	-moz-transform: translateX(-50%) translateY(-50%);
+	-ms-transform: translateX(-50%) translateY(-50%);
+	transform: translateX(-50%) translateY(-50%);*/
+}
+
+.modal-content{
+    background-color: #fefefe;
+    margin: 12% auto; /* 15% from the top and centered */
+    padding: 25px;
+    border: 1px solid #888;
+    width: 85%; /* Could be more or less, depending on screen size */
+    font-family: 'Source Sans Pro';
+}
+
+.modal-text{
+    width: 95%;
+}
+/* DOESNT WORK! :(
+Effect 3: Slide from the bottom - codrops
+.modal-effect .modal-content {
+	-webkit-transform: translateY(20%);
+	-moz-transform: translateY(20%);
+	-ms-transform: translateY(20%);
+	transform: translateY(20%);
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.modal-open.modal-effect .modal-content {
+	-webkit-transform: translateY(0);
+	-moz-transform: translateY(0);
+	-ms-transform: translateY(0);
+	transform: translateY(0);
+	opacity: 1;
+}
+
+*/
+
+#copyright-div{
+    text-align: center;
+    width: 100%;
+    /*background-color: aqua;*/
+    font-family: 'Montserrat';
+    margin-top: 40px;
+    position: relative;
+    margin-bottom: 35px;
+}
+
+#copyright{
+    color: white;
+}
+
+.icons-div{ /* position against another div */
+    display: table;
+    position: relative;
+    /*background-color: beige;*/
+    margin: 0 auto;
+    width: auto;
+}
+
+
+.icons{
+    float: left;
+    width: 50px;
+    height: auto;
+    padding: 0 10px;
+    margin-bottom: 60px;
+}
+
+/*
+width of about:
+- 50% on web
+- full on mobile
+*/
